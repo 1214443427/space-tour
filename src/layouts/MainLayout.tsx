@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import {NavLink, Outlet, useLocation, useParams} from 'react-router-dom'
+import { useEffect, useRef } from 'react'
+import {NavLink, Outlet} from 'react-router-dom'
 import logo from '../assets/shared/logo.svg'
 // import hamburger from '../assets/shared/icon-hamburger.svg'
 // import homeBackground from '../assets/home/background-home-desktop.jpg'
@@ -37,9 +37,9 @@ function MainLayout() {
     //     }
     // },
     // [location.pathname])
-    const menuRef = useRef(null);
+    const menuRef = useRef<HTMLDivElement>(null);
 
-    const toggleMenu = ()=>menuRef.current.classList.toggle('active');
+    const toggleMenu = ()=>menuRef.current?.classList.toggle('active');
 
     useEffect(()=>{
         

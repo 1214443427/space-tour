@@ -1,6 +1,5 @@
-import React from 'react'
 import data from '../data.json'
-import { NavLink, useOutletContext, useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import launchVehicleLandscape from '../assets/technology/image-launch-vehicle-landscape.jpg'
 import launchVehiclePortrait from '../assets/technology/image-launch-vehicle-portrait.jpg'
 import spaceCapsuleLandscape from '../assets/technology/image-space-capsule-landscape.jpg'
@@ -10,7 +9,7 @@ import spaceportPortrait from '../assets/technology/image-spaceport-portrait.jpg
 
 function Technology() {
   const param = useParams()
-  const id:number = param.id;
+  const id:number = parseInt(param.id || '0');
   const imgList = [
     {landscape: launchVehicleLandscape,
      portrait: launchVehiclePortrait},

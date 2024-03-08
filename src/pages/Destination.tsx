@@ -10,11 +10,11 @@ function Destination() {
       <p className='text-lightblue ff-sans-normal fs-400' style={{lineHeight:2}}>{data.destinations[id].description}</p>
       <div className='divider'></div>
       <div className='destination-bottom-div flex-container column'>
-        <div className='flex-container column' style={{"--gap":"0.5rem"}}>
+        <div className='flex-container column' style={{"--gap":"0.5rem"} as React.CSSProperties}>
           <h4 className='uppercase text-lightblue ff-sans-cond'>Avg. Distance</h4>
           <h2 className='ff-serif fs-700 uppercase'>{data.destinations[id].distance}</h2>
         </div>
-        <div className='flex-container column' style={{"--gap":"0.5rem"}}>
+        <div className='flex-container column' style={{"--gap":"0.5rem"} as React.CSSProperties}>
           <h4 className='uppercase text-lightblue ff-sans-cond'>EST. Travel time</h4>
           <h2 className='ff-serif fs-700 uppercase'>{data.destinations[id].travel}</h2>
         </div>

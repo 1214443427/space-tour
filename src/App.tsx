@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider} from 'react-router-dom'
 import './App.css'
 import MainLayout from './layouts/MainLayout'

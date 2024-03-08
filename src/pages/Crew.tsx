@@ -1,6 +1,5 @@
-import React from 'react'
 import data from '../data.json'
-import { NavLink, useOutletContext, useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import crew0 from '../assets/crew/image-douglas-hurley.png'
 import crew1 from '../assets/crew/image-mark-shuttleworth.png'
 import crew2 from '../assets/crew/image-victor-glover.png'
@@ -8,7 +7,7 @@ import crew3 from '../assets/crew/image-anousheh-ansari.png'
 
 function Crew() {
   const param = useParams()
-  const id:number = param.id;
+  const id:number = parseInt(param.id || '0');
   const crewImagesList:string[] = [crew0, crew1, crew2, crew3]
   return (
     <div className='grid-container grid-container--crew'>
