@@ -328,6 +328,7 @@ input, button, textarea, select{
 }
 
 .header{
+  z-index: 1;
   padding: 1.5rem;
   align-items: center;
   position: absolute;

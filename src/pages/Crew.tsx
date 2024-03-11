@@ -4,13 +4,17 @@ import crew0 from '../assets/crew/image-douglas-hurley.png'
 import crew1 from '../assets/crew/image-mark-shuttleworth.png'
 import crew2 from '../assets/crew/image-victor-glover.png'
 import crew3 from '../assets/crew/image-anousheh-ansari.png'
+import { motion } from 'framer-motion'
 
 function Crew() {
   const param = useParams()
   const id:number = parseInt(param.id || '0');
   const crewImagesList:string[] = [crew0, crew1, crew2, crew3]
   return (
-    <div className='grid-container grid-container--crew'>
+    <motion.div className='grid-container grid-container--crew'
+      initial = {{translateX: "-100%"}}
+      animate = {{translateX: "0%"}}
+      exit = {{translateX: "100%"}}>
         <h4 className='numbered-titles uppercase fs-700 ff-sans-cond'><b className='text-lightblue' aria-hidden="true" style={{opacity:"25%"}}>02</b>Meet your crew</h4>
         <div className='crew-img-div'>
           <img src={crewImagesList[id]}></img>
@@ -26,7 +30,7 @@ function Crew() {
             <h2 className='uppercase ff-serif fs-500'>{data.crew[id].name}</h2>
             <p className='text-lightblue fs-600' style={{lineHeight:1.5}}>{data.crew[id].bio}</p>
           </div>
-    </div>
+    </motion.div>
   )
 }
 

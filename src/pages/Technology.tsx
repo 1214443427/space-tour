@@ -6,6 +6,7 @@ import spaceCapsuleLandscape from '../assets/technology/image-space-capsule-land
 import spaceCapsulePortrait from '../assets/technology/image-space-capsule-portrait.jpg'
 import spaceportLandscape from '../assets/technology/image-spaceport-landscape.jpg'
 import spaceportPortrait from '../assets/technology/image-spaceport-portrait.jpg'
+import { motion } from 'framer-motion'
 
 function Technology() {
   const param = useParams()
@@ -19,12 +20,20 @@ function Technology() {
     portrait: spaceCapsulePortrait},
     ]
   return (
-    <div className='grid-container grid-container--technology'>
+    <motion.div 
+      className='grid-container grid-container--technology'
+      initial = {{translateX: "-100%"}}
+      animate = {{translateX: "0%"}}
+      exit = {{translateX: "100%"}}>
         <h4 className='numbered-titles uppercase fs-700 ff-sans-cond'><b className='text-lightblue' aria-hidden="true" style={{opacity:"25%"}}>03</b>Space Launch 101</h4>
-        <picture>
+        <motion.picture
+          key = {id}
+          initial = {{opacity: 0}}
+          animate = {{opacity: 1, transition: {duration: 1}}}
+          exit = {{opacity: 0}}>
             <source media='(min-width:45rem)' srcSet={imgList[id].portrait} />
             <img src={imgList[id].landscape} />
-        </picture>
+        </motion.picture>
         <div className="technology-text-area">
             <div className='tab-list flex-container tab-list--technology'>
                 <NavLink className='circle-indicators text-white ff-serif' to={"../technology/0"}> <p>1</p> </NavLink>
@@ -34,10 +43,17 @@ function Technology() {
             <div>
                 <h3 className='uppercase ff-serif text-lightblue' >The terminology...</h3>
                 <h2 className='uppercase ff-serif fs-500'>{data.technology[id].name}</h2>
-                <p className='text-lightblue fs-600' style={{lineHeight:1.5}}>{data.technology[id].description}</p>
+                <motion.p 
+                  className='text-lightblue fs-600' 
+                  style={{lineHeight:1.5}}
+                  key = {id}
+                  initial = {{opacity: 0}}
+                  animate = {{opacity: 1, transition: {duration: 1}}}
+                  exit = {{opacity: 0}}
+                >{data.technology[id].description}</motion.p>
             </div>
           </div>
-    </div>
+    </motion.div>
   )
 }
 

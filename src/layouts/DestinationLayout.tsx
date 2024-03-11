@@ -4,6 +4,7 @@ import moonImg from '../assets/destination/image-moon.png'
 import marsImg from '../assets/destination/image-mars.png'
 import europaImg from '../assets/destination/image-europa.png'
 import titanImg from '../assets/destination/image-titan.png'
+import { motion } from 'framer-motion'
 
 
 function DestinationLayout() {
@@ -12,7 +13,10 @@ function DestinationLayout() {
   const id:number = parseInt(param.id || '0');
   const imgArray = [moonImg,marsImg,europaImg,titanImg]
   return (
-    <div className='bg-container grid-container grid-container--destination'>
+    <motion.div className='bg-container grid-container grid-container--destination'
+      initial = {{translateX: "-100%"}}
+      animate = {{translateX: "0%"}}
+      exit = {{translateX: "100%"}}>
       <div className='flex-container column destination-upper-div'>
         <h2 className='numbered-titles uppercase fs-700 ff-sans-cond'><b className='text-lightblue' aria-hidden="true" style={{opacity:"25%"}}>01</b>Pick your destination</h2>
         <img className='destination-image' ref={ref} src={imgArray[id]}></img>
@@ -26,7 +30,7 @@ function DestinationLayout() {
         </div>
         <Outlet context={id}/>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
